@@ -1,0 +1,66 @@
+[1/5] cmd.exe /C "cd /D "C:\Users\Lenovo S145\Documents\GitHub\WES\wifi\build\esp-idf\esptool_py" && C:\Espressif\python_env\idf5.0_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.0.4/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "C:/Users/Lenovo S145/Documents/GitHub/WES/wifi/build/partition_table/partition-table.bin" "C:/Users/Lenovo S145/Documents/GitHub/WES/wifi/build/1_wifi_sta_mode.bin""
+1_wifi_sta_mode.bin binary size 0xac1e0 bytes. Smallest app partition is 0x100000 bytes. 0x53e20 bytes (33%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D "C:\Users\Lenovo S145\Documents\GitHub\WES\wifi\build\bootloader\esp-idf\esptool_py" && C:\Espressif\python_env\idf5.0_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.0.4/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 "C:/Users/Lenovo S145/Documents/GitHub/WES/wifi/build/bootloader/bootloader.bin""
+Bootloader binary size 0x6760 bytes. 0x8a0 bytes (8%) free.
+[2/3] cmd.exe /C "cd /D C:\Espressif\frameworks\esp-idf-v5.0.4\components\esptool_py && C:\Espressif\tools\cmake\3.24.0\bin\cmake.exe -D IDF_PATH=C:/Espressif/frameworks/esp-idf-v5.0.4 -D SERIAL_TOOL=C:/Espressif/python_env/idf5.0_py3.11_env/Scripts/python.exe;;C:/Espressif/frameworks/esp-idf-v5.0.4/components/esptool_py/esptool/esptool.py;--chip;esp32 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D "WORKING_DIRECTORY=C:/Users/Lenovo S145/Documents/GitHub/WES/wifi/build" -P C:/Espressif/frameworks/esp-idf-v5.0.4/components/esptool_py/run_serial_tool.cmake"
+esptool esp32 -p COM4 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 1_wifi_sta_mode.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.6.2
+Serial port COM4
+Connecting....
+Chip is ESP32-D0WD-V3 (revision v3.0)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 0c:8b:95:4c:72:88
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x000bcfff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Compressed 26464 bytes to 16483...
+Writing at 0x00001000... (50 %)
+Writing at 0x000076d4... (100 %)
+Wrote 26464 bytes (16483 compressed) at 0x00001000 in 0.9 seconds (effective 244.6 kbit/s)...
+Hash of data verified.
+Compressed 704992 bytes to 455116...
+Writing at 0x00010000... (3 %)
+Writing at 0x0001ac14... (7 %)
+Writing at 0x00023488... (10 %)
+Writing at 0x00028a09... (14 %)
+Writing at 0x00032257... (17 %)
+Writing at 0x00037ba0... (21 %)
+Writing at 0x0003d667... (25 %)
+Writing at 0x000434c1... (28 %)
+Writing at 0x00048a58... (32 %)
+Writing at 0x0004dce1... (35 %)
+Writing at 0x0005307b... (39 %)
+Writing at 0x000583e8... (42 %)
+Writing at 0x0005da4b... (46 %)
+Writing at 0x000632a2... (50 %)
+Writing at 0x00068db6... (53 %)
+Writing at 0x0006e5a7... (57 %)
+Writing at 0x00073e3b... (60 %)
+Writing at 0x00079720... (64 %)
+Writing at 0x0007ee9f... (67 %)
+Writing at 0x000849fa... (71 %)
+Writing at 0x0008a84a... (75 %)
+Writing at 0x000903d8... (78 %)
+Writing at 0x000967fa... (82 %)
+Writing at 0x000a0d57... (85 %)
+Writing at 0x000a70e1... (89 %)
+Writing at 0x000acc46... (92 %)
+Writing at 0x000b259e... (96 %)
+Writing at 0x000b7cf2... (100 %)
+Wrote 704992 bytes (455116 compressed) at 0x00010000 in 10.6 seconds (effective 533.2 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.0 seconds (effective 512.8 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
